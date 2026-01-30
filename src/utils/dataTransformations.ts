@@ -240,7 +240,7 @@ export function filterByGlobalFilters(
     customerName?: string;
     itemCodes?: string[];
   },
-  skuMetricsMap: Map<string, SKUMetrics>
+  _skuMetricsMap: Map<string, SKUMetrics>
 ): WeeklySalesData[] {
   return data.filter(row => {
     // Date range filter - ensure both are in comparable format

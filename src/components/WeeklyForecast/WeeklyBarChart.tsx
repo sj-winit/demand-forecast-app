@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { ChevronDown } from 'lucide-react';
 import {
   Chart as ChartJS,
   CategoryScale,

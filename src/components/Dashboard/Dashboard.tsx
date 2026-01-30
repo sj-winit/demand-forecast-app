@@ -200,7 +200,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ metrics }) => {
       title: {
         display: true,
         text: 'Weekly Sales Volume (Training Data)',
-        font: { size: 16, weight: 'bold' }
+        font: { size: 16, weight: 'bold' as const }
       }
     },
     scales: {
@@ -235,7 +235,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ metrics }) => {
       title: {
         display: true,
         text: `Items Contributing to 75% of Sales (${salesAnalytics?.top_75_percent_items?.length || 0} items)`,
-        font: { size: 16, weight: 'bold' }
+        font: { size: 16, weight: 'bold' as const }
       },
       tooltip: {
         callbacks: {
@@ -446,7 +446,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ metrics }) => {
                         title: {
                           display: true,
                           text: 'Customer Market Share',
-                          font: { size: 14, weight: 'bold' }
+                          font: { size: 14, weight: 'bold' as const }
                         }
                       }
                     }}

@@ -5,7 +5,7 @@
  */
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { TrendingUp, AlertCircle, Package, ChevronDown, ChevronRight } from 'lucide-react';
+import { AlertCircle, Package, ChevronDown, ChevronRight } from 'lucide-react';
 import { PredictionFilters } from './PredictionFilters';
 import { ActualVsPredictionChart } from './ActualVsPredictionChart';
 import { WeekDetailPopup } from './WeekDetailPopup';
@@ -19,7 +19,6 @@ import {
   calculateMetrics,
   getItemsForCustomer,
   getDateRange,
-  getDefaultDateRange,
   calculateWeekDetail
 } from '../../utils/predictionTransformations';
 

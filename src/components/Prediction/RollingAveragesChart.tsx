@@ -84,7 +84,8 @@ export const RollingAveragesChart: React.FC<RollingAveragesChartProps> = ({
       tooltip: {
         callbacks: {
           label: function(context) {
-            return `Average: ${context.parsed.y.toFixed(1)}`;
+            const yValue = context.parsed.y;
+            return `Average: ${(yValue ?? 0).toFixed(1)}`;
           }
         }
       }

@@ -4,15 +4,12 @@
  */
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { TrendingUp, AlertCircle, Package, ChevronDown, ChevronRight } from 'lucide-react';
+import { AlertCircle, Package, ChevronDown, ChevronRight } from 'lucide-react';
 import { getPredictionData } from '../../services/api';
 import { LoadingSpinner, ErrorMessage } from '../Common';
 import {
   PredictionData,
-  PredictionMetrics,
-  getItemsForCustomer,
-  getDateRange,
-  filterPredictionData
+  getItemsForCustomer
 } from '../../utils/predictionTransformations';
 import { FutureForecastChart } from './FutureForecastChart';
 

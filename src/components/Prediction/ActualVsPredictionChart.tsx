@@ -62,8 +62,8 @@ export const ActualVsPredictionChart: React.FC<ActualVsPredictionChartProps> = (
   });
 
   // Predicted bars - all orange (only Test/Train data shown, Forecast filtered out)
-  const predictedColors = metrics.map(m => 'rgba(249, 115, 22, 0.8)');  // orange-500
-  const predictedBorders = metrics.map(m => 'rgb(249, 115, 22)');       // orange-500
+  const predictedColors = metrics.map(_m => 'rgba(249, 115, 22, 0.8)');  // orange-500
+  const predictedBorders = metrics.map(_m => 'rgb(249, 115, 22)');       // orange-500
 
   const chartData = {
     labels: metrics.map(m => {
