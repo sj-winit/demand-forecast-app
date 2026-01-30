@@ -5,11 +5,11 @@
 
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import { commonBarOptions, COLORS, createHistogramBins } from '../../../utils/chartConfig';
+import { commonBarOptions, COLORS, _createHistogramBins } from '../../../utils/chartConfig';
 import {
   groupBySKU,
-  groupByCustomer,
-  calculateCustomerContribution,
+  _groupByCustomer,
+  _calculateCustomerContribution,
   WeeklySalesData
 } from '../../../utils/dataTransformations';
 
