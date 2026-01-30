@@ -62,12 +62,6 @@ export const Prediction: React.FC = () => {
     loadData();
   }, []);
 
-  // Force reload function for debugging
-  const forceReload = () => {
-    console.log('Force reloading data...');
-    loadData();
-  };
-
   const loadData = async () => {
     try {
       setLoading(true);
@@ -78,7 +72,7 @@ export const Prediction: React.FC = () => {
       console.log('Timestamp:', new Date().toISOString());
 
       // Check if data is an array or has a data property
-      const dataArray = Array.isArray(data) ? data : (data.data || []);
+      const dataArray = Array.isArray(data) ? data : ((data as any).data || []);
 
       console.log('=== Data Loading Debug ===');
       console.log('Total records loaded:', dataArray.length);
@@ -443,7 +437,7 @@ export const Prediction: React.FC = () => {
               // Sort descending (more weeks with actual data first)
               return weeksWithActualB - weeksWithActualA;
             })
-            .map(([itemCode, data]) => {
+            .map(([itemCode, _data]) => {
               const metrics = metricsByItem[itemCode];
               const itemName = itemNames[itemCode] || itemCode;
               const isExpanded = expandedItems.has(itemCode);

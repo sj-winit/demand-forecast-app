@@ -142,7 +142,7 @@ export const WeeklyBarChart: React.FC<WeeklyBarChartProps> = ({ data, title, onB
         },
       },
     },
-    onClick: (event: any, activeElements: any[]) => {
+    onClick: (_event: any, activeElements: any[]) => {
       if (activeElements.length > 0 && onBarClick) {
         const index = activeElements[0].index;
         const datasetIndex = activeElements[0].datasetIndex;
@@ -154,7 +154,7 @@ export const WeeklyBarChart: React.FC<WeeklyBarChartProps> = ({ data, title, onB
         });
       }
     },
-    onHover: (event: any, elements: any[]) => {
+    onHover: (_event: any, elements: any[]) => {
       const canvas = chartRef.current?.canvas;
       if (canvas) {
         canvas.style.cursor = elements.length > 0 ? 'pointer' : 'default';

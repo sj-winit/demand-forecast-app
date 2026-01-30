@@ -37,7 +37,7 @@ export const FutureForecast: React.FC = () => {
       const data = await getPredictionData();
 
       // Check if data is an array or has a data property
-      const dataArray = Array.isArray(data) ? data : (data.data || []);
+      const dataArray = Array.isArray(data) ? data : ((data as any).data || []);
 
       // Normalize data
       const normalizedData = dataArray.map((row: any) => ({

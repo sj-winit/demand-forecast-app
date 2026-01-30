@@ -373,7 +373,7 @@ export const WeeklyForecast: React.FC<WeeklyForecastProps> = ({ onSelectPredicti
 
             const itemCodes = Object.keys(itemGroups).sort();
 
-            return itemCodes.map((itemCode, idx) => {
+            return itemCodes.map((itemCode, _idx) => {
               const itemPredictions = itemGroups[itemCode];
               const itemName = itemPredictions[0]?.ItemName || itemCode;
 

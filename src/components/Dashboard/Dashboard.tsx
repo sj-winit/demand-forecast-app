@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Calendar, TrendingUp, AlertCircle, Package, Users, ShoppingCart, PieChart, Filter, BarChart3, PieChart as PieChartIcon } from 'lucide-react';
+import { Calendar, TrendingUp, AlertCircle, Package, ShoppingCart, PieChart, BarChart3 } from 'lucide-react';
 import { MetricCard } from '../Common/MetricCard';
 import { Line, Bar, Pie } from 'react-chartjs-2';
 import {
@@ -48,12 +48,10 @@ type TimePeriod = '1month' | '3months' | '6months' | '1year' | 'all';
 export const Dashboard: React.FC<DashboardProps> = ({ metrics }) => {
   const [topItems, setTopItems] = useState<TopItem[]>([]);
   const [customerShare, setCustomerShare] = useState<Array<{name: string, count: number, percentage: number}>>([]);
-  const [loading, setLoading] = useState(true);
 
   // Sales Supervision state
   const [salesAnalytics, setSalesAnalytics] = useState<any>(null);
   const [salesLoading, setSalesLoading] = useState(false);
-  const [hasAppliedSalesFilters, setHasAppliedSalesFilters] = useState(false);
 
   // Filter state
   const [selectedCustomer, setSelectedCustomer] = useState<string>('');

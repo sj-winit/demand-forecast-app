@@ -40,7 +40,7 @@ export const AIInsights: React.FC<AIInsightsProps> = ({ metrics, selectedPredict
   const [loading, setLoading] = useState(false);
   const [insight, setInsight] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [activeType, setActiveType] = useState<InsightType | null>(null);
+  const [_activeType, setActiveType] = useState<InsightType | null>(null);
 
   const generateInsight = async (type: InsightType, context: Record<string, any>) => {
     setLoading(true);

@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { BarChart3, TrendingUp, ShoppingCart } from 'lucide-react';
+import { BarChart3 } from 'lucide-react';
 import { MarketShareProvider } from './contexts/MarketShareContext';
 import { SalesSupervision } from './components/SalesSupervision';
 import { Prediction } from './components/Prediction';
-import { FutureForecast } from './components/FutureForecast';
-import { RecommendedOrder } from './components/RecommendedOrder';
 
 type TabType = 'supervision' | 'prediction' | 'futureForecast' | 'orders';
 
