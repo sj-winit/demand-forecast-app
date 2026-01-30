@@ -95,7 +95,7 @@ export const RollingAveragesChart: React.FC<RollingAveragesChartProps> = ({
           display: false
         },
         ticks: {
-          font: { size: 12, weight: '500' as const }
+          font: { size: 12, weight: 500 }
         }
       },
       y: {

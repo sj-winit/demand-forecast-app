@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, AlertCircle, BarChart3, Activity, PieChart } from 'lucide-react';
+import { AlertCircle, Activity, PieChart } from 'lucide-react';
 import { DataCoverageHealth } from './sections/DataCoverageHealth';
 import { MarketShare } from './sections/MarketShare';
 import { getTrainingSalesData } from '../../services/api';

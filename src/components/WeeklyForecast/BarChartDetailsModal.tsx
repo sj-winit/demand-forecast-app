@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Calendar, TrendingUp, BarChart3, AlertCircle, PieChart } from 'lucide-react';
+import { X, TrendingUp, BarChart3, AlertCircle, PieChart } from 'lucide-react';
 
 interface BarChartDetailsModalProps {
   dataPoint: {
@@ -88,8 +88,8 @@ export const BarChartDetailsModal: React.FC<BarChartDetailsModalProps> = ({ data
               {variancePercent !== null && (
                 <div>
                   <span className="text-gray-600 text-sm">Variance %:</span>
-                  <span className={`ml-2 font-semibold ${variance >= 0 ? 'text-red-600' : 'text-green-600'}`}>
-                    {variancePercent >= 0 ? '+' : ''}{variancePercent}%
+                  <span className={`ml-2 font-semibold ${parseFloat(variancePercent) >= 0 ? 'text-red-600' : 'text-green-600'}`}>
+                    {parseFloat(variancePercent) >= 0 ? '+' : ''}{variancePercent}%
                   </span>
                 </div>
               )}

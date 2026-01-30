@@ -120,7 +120,7 @@ export const getHistoricalData = async (filters: ForecastFilters = {}): Promise<
   if (filters.customer) params.append('customer', filters.customer);
   if (filters.item_code) params.append('item_code', filters.item_code);
   if (filters.item_codes && Array.isArray(filters.item_codes)) {
-    filters.item_codes.forEach(code => params.append('item_codes', code));
+    filters.item_codes.forEach((code: string) => params.append('item_codes', code));
   }
   if (filters.start_week) params.append('start_week', filters.start_week);
   if (filters.end_week) params.append('end_week', filters.end_week);

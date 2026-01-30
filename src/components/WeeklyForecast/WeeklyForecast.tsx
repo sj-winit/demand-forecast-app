@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Filter, ChevronDown, ChevronUp, Search, BarChart3 } from 'lucide-react';
-import { getHistoricalData, getCustomers, getItems, getPatterns, getDailyBreakdown } from '../../services/api';
+import { getHistoricalData, getCustomers, getItems, getDailyBreakdown } from '../../services/api';
 import type { WeeklyPrediction, DailyBreakdown } from '../../types';
 import { WeeklyBarChart } from './WeeklyBarChart';
 import { BarChartDetailsModal } from './BarChartDetailsModal';

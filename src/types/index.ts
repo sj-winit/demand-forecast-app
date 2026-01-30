@@ -75,6 +75,7 @@ export interface Item {
 export interface ForecastFilters {
   customer?: string;
   item_code?: string;
+  item_codes?: string[];
   start_week?: string;
   end_week?: string;
   confidence?: string;

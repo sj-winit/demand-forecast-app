@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { ChevronDown, TrendingUp } from 'lucide-react';
+import React, { useRef } from 'react';
+import { ChevronDown } from 'lucide-react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -83,7 +83,7 @@ export const WeeklyBarChart: React.FC<WeeklyBarChartProps> = ({ data, title, onB
         text: title,
         font: {
           size: 16,
-          weight: 'bold',
+          weight: 'bold' as const,
         },
       },
       tooltip: {
@@ -122,7 +122,7 @@ export const WeeklyBarChart: React.FC<WeeklyBarChartProps> = ({ data, title, onB
           text: 'Quantity',
           font: {
             size: 14,
-            weight: 'bold',
+            weight: 'bold' as const,
           },
         },
         grid: {
@@ -135,7 +135,7 @@ export const WeeklyBarChart: React.FC<WeeklyBarChartProps> = ({ data, title, onB
           text: 'Week',
           font: {
             size: 14,
-            weight: 'bold',
+            weight: 'bold' as const,
           },
         },
         grid: {

@@ -5,7 +5,7 @@
  * Stores training sales data for on-demand calculation
  */
 
-import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
+import { createContext, useContext, useState, ReactNode, useCallback } from 'react';
 import { WeeklySalesData } from '../utils/dataTransformations';
 
 export interface MarketShareItem {

@@ -45,11 +45,11 @@ export function RecommendedOrder() {
 
     selectedCustomers.forEach(customerName => {
       // Check cache first
-      let cachedData = getMarketShareForCustomerAndPercent(customerName, marketSharePercent);
+      let cachedData = getMarketShareForCustomerAndPercent(customerName, marketSharePercent ?? 80);
 
       // If not in cache, calculate on the fly
       if (!cachedData) {
-        cachedData = calculateMarketShare(customerName, referenceDate, marketSharePercent);
+        cachedData = calculateMarketShare(customerName, referenceDate, marketSharePercent ?? 80);
       }
 
       if (cachedData && cachedData.items && cachedData.items.length > 0) {
@@ -69,7 +69,6 @@ export function RecommendedOrder() {
   const [showFilters, setShowFilters] = useState(true);
   const [showCustomerDropdown, setShowCustomerDropdown] = useState(false);
   const [showItemDropdown, setShowItemDropdown] = useState(false);
-  const [isCalculatingMarketShare, setIsCalculatingMarketShare] = useState(false);
   const customerDropdownRef = useRef<HTMLDivElement>(null);
   const itemDropdownRef = useRef<HTMLDivElement>(null);
 
