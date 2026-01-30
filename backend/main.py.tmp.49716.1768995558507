@@ -1,0 +1,92 @@
+"""
+Demand Forecast Analytics - FastAPI Backend
+Weekly demand forecasting with Sunday-start weeks.
+"""
+import os
+from dotenv import load_dotenv
+
+# Load environment variables FIRST before any imports that use them
+load_dotenv()
+
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
+
+from routes import weekly_forecast, analytics, recommended_order, sales_supervision, predictions
+from data import get_data_loader
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Lifespan context manager for startup and shutdown events."""
+    # Startup
+    print("Loading data...")
+    data_loader = get_data_loader()
+
+    if len(data_loader.predictions) > 0:
+        print(f"Loaded {len(data_loader.predictions)} predictions")
+        print(f"Date range: {data_loader.predictions['TrxDate'].min()} to {data_loader.predictions['TrxDate'].max()}")
+    else:
+        print("Warning: No predictions data loaded!")
+        print("Please ensure merged_predictions.csv is in the correct location:")
+        print("  - D:/Sasanka/Alkhair/webapp/output_weekly/merged_predictions.csv")
+
+    yield
+    # Shutdown
+    print("Shutting down...")
+
+
+# Create FastAPI app
+app = FastAPI(
+    title="Demand Forecast Analytics API",
+    description="Weekly demand forecasting analytics with AI insights",
+    version="1.0.0",
+    lifespan=lifespan
+)
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, specify exact origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Include routers
+app.include_router(weekly_forecast.router, prefix="/api", tags=["weekly-forecast"])
+app.include_router(analytics.router, prefix="/api", tags=["analytics"])
+app.include_router(recommended_order.router, prefix="/api", tags=["recommended-order"])
+app.include_router(sales_supervision.router, prefix="/api", tags=["sales-supervision"])
+
+
+@app.get("/")
+async def root():
+    """Root endpoint with API information."""
+    return {
+        "message": "Demand Forecast Analytics API",
+        "version": "1.0.0",
+        "docs": "/docs",
+        "endpoints": {
+            "weekly_forecast": "/api/forecast/weekly",
+            "daily_breakdown": "/api/forecast/weekly/{week_start}/daily",
+            "summary": "/api/analytics/summary",
+            "customers": "/api/analytics/customers",
+            "items": "/api/analytics/items"
+        }
+    }
+
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint."""
+    data_loader = get_data_loader()
+    return {
+        "status": "healthy",
+        "data_loaded": len(data_loader.predictions) > 0
+    }
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

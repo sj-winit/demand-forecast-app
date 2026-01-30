@@ -1,0 +1,23 @@
+services:
+  # Backend Service
+  - type: web
+    name: demand-forecast-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.7
+      - key: GROQ_API_KEY
+        sync: false
+    healthCheckPath: /health
+
+  # Frontend Service
+  - type: web
+    name: demand-forecast-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false
