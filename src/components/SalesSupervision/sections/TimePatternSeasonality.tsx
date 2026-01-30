@@ -5,8 +5,8 @@
  */
 
 import React from 'react';
-import { Line, Bar } from 'react-chartjs-2';
-import { commonLineOptions, commonBarOptions, COLORS } from '../../../utils/chartConfig';
+import { Bar } from 'react-chartjs-2';
+import { COLORS } from '../../../utils/chartConfig';
 import {
   groupBySKU,
   getWeekOfYear,

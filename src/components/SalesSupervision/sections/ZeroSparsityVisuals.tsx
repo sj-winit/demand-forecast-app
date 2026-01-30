@@ -4,11 +4,9 @@
  */
 
 import React from 'react';
-import { Line } from 'react-chartjs-2';
-import { commonLineOptions, COLORS } from '../../../utils/chartConfig';
+import { COLORS } from '../../../utils/chartConfig';
 import {
   createZeroDemandHeatmap,
-  calculateSparsityTrend,
   WeeklySalesData
 } from '../../../utils/dataTransformations';
 

@@ -4,7 +4,6 @@
  */
 
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
 import { Scatter } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -13,7 +12,7 @@ import {
   Tooltip,
   Legend
 } from 'chart.js';
-import { commonBarOptions, COLORS, DEMAND_TYPE_COLORS, createHistogramBins } from '../../../utils/chartConfig';
+import { DEMAND_TYPE_COLORS } from '../../../utils/chartConfig';
 import {
   groupBySKU,
   calculateCV,

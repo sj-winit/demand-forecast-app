@@ -6,11 +6,10 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Calendar, Package, ChevronDown, X, Users } from 'lucide-react';
-import { commonLineOptions, _commonBarOptions, COLORS, _createHistogramBins } from '../../../utils/chartConfig';
+import { commonLineOptions, COLORS } from '../../../utils/chartConfig';
 import {
   calculateActiveSKUsPerWeek,
   calculateTotalQuantityPerWeek,
-  _groupBySKU,
   WeeklySalesData
 } from '../../../utils/dataTransformations';
 

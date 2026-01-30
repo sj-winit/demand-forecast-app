@@ -77,7 +77,7 @@ export const FutureForecast: React.FC = () => {
   }, [rawData, filters.customerName]);
 
   // Filter data - EMPTY for now
-  const forecastData = useMemo(() => {
+  const forecastData = useMemo((): PredictionData[] => {
     return [];
   }, []);
 

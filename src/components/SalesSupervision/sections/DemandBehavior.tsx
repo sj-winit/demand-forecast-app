@@ -18,7 +18,7 @@ interface DemandBehaviorProps {
   onSKUClick?: (itemCode: string) => void;
 }
 
-export const DemandBehavior: React.FC<DemandBehaviorProps> = ({ data, onSKUClick }) => {
+export const DemandBehavior: React.FC<DemandBehaviorProps> = ({ data, onSKUClick: _onSKUClick }) => {
   // Chart 4: Demand Density Distribution (Histogram)
   const demandDensityData = React.useMemo(() => {
     const skuData = groupBySKU(data);
