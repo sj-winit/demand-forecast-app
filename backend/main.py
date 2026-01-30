@@ -8,10 +8,7 @@ import sys
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Add parent directory to path to import config
-# This works both locally and on Render
-PARENT_DIR = Path(__file__).parent.parent
-sys.path.insert(0, str(PARENT_DIR))
+# Import config from current directory (for Render deployment)
 import config
 
 # Load environment variables FIRST before any imports that use them
